@@ -1,0 +1,25 @@
+﻿@page "{id}"
+@model EFCore_UseCase.Pages.ProductCategory.EditModel
+@{
+
+    ViewData["Title"] = "Edit Product Category";
+
+}
+
+
+<div class="text-center">
+    <h1 class="display-8 text-left">Edit Product Category</h1>
+    <hr />
+    <form method="post">
+        <div class="form-group col-md-6">
+
+            <input name="Id" asp-for="Edit.Id" type="hidden"/>
+            <input name="Name" asp-for="Edit.Name" class="form-control"  />
+        </div>
+        <div class="form-group col-md-6">
+            <input type="submit" value="Edit" class="btn btn-warning btn-block" />
+        </div>
+
+    </form>
+
+</div>

@@ -1,6 +1,13 @@
+using EFCore.Application;
+using EFCore.Application.Contracts.ProductCategory;
+using EFCore.Domain.ProductAgg;
+using EFCore.Domain.ProductCategoryAgg;
+using EFCore.Infra.EFCore;
+using EFCore.Infra.EFCore.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +31,15 @@ namespace EFCore_UseCase
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddTransient<IProductRepo, ProductRepo>();
+
+            services.AddTransient<IProductCategoryRepo, ProductCategoryRepo>();
+            services.AddTransient<IProductCategoryApplication, ProductCategoryApplication>();
+
+            var Connection = Configuration.GetConnectionString("EF_useCaseConnection");
+            services.AddDbContext<EFContext>(c => c.UseSqlServer(Connection));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

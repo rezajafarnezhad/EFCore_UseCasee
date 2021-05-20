@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EFCore.Application.Contracts.ProductCategory
 {
-    public class CreateProduct
+    public class CreateProductCategory
     {
         public string Name { get; set; }
     }

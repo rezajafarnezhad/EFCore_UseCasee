@@ -9,10 +9,10 @@ namespace EFCore.Application.Contracts.ProductCategory
     public interface IProductCategoryApplication
     {
 
-        void Create(CreateProduct command);
+        void Create(CreateProductCategory command);
         void Edit(Edit command);
         List<ProductCategoryViewModel> Search(string name);
-
+        Edit GetForEdit(int id);
         
     }
 }

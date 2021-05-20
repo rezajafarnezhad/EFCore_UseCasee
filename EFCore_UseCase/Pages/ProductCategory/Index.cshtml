@@ -1,0 +1,45 @@
+﻿@page
+@model ProductCategory.IndexModel
+@{
+
+    ViewData["Title"] = "Product Category";
+
+}
+
+
+<div class="text-center">
+    <h1 class="display-8 text-left">Product Category List</h1>
+    <p class="text-right"><a href="/ProductCategory/Create" class="btn btn-success">Create new Product Category</a></p>
+
+
+
+    <table class="table table-responsive table-bordered table-striped">
+
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Creation Date</th>
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+            @foreach (var item in Model.productCategoryViewModels)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.CreationDate</td>
+                    <td>
+                        <a href="/ProductCategory/Edit/@item.Id" class="btn btn-warning">Edit</a>
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+
+    </table>
+</div>
