@@ -13,6 +13,6 @@ namespace EFCore.Application.Contracts.ProductCategory
         void Edit(Edit command);
         List<ProductCategoryViewModel> Search(string name);
 
-
+        
     }
 }
