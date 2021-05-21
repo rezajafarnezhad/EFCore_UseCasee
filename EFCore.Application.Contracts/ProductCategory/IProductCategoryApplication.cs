@@ -11,6 +11,7 @@ namespace EFCore.Application.Contracts.ProductCategory
 
         void Create(CreateProductCategory command);
         void Edit(Edit command);
+        List<ProductCategoryViewModel> GetAll();
         List<ProductCategoryViewModel> Search(string name);
         Edit GetForEdit(int id);
         

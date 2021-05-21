@@ -12,6 +12,7 @@ namespace EFCore.Domain.ProductCategoryAgg
         void Create(ProductCategory productCategory);
         ProductCategory GetProductCategory(int ProductCategoryId);
         List<ProductCategoryViewModel> Search(string name);
+        List<ProductCategoryViewModel> GetAll();
         bool Exists(string name);
         void Save();
 

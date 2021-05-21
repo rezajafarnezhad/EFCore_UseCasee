@@ -15,7 +15,7 @@ namespace EFCore.Application
 
         public void Create(CreateProductCategory command)
         {
-            if (_ProductCategoryRepo.Exists(command.Name))
+            if (_ProductCategoryRepo.Exists(command.Name) || command==null)
             {
                 return;
             }
@@ -29,6 +29,11 @@ namespace EFCore.Application
             var productCategory = _ProductCategoryRepo.GetProductCategory(command.Id);
             productCategory.Edit(command.Name);
             _ProductCategoryRepo.Save();
+        }
+
+        public List<ProductCategoryViewModel> GetAll()
+        {
+            return _ProductCategoryRepo.GetAll();
         }
 
         public Edit GetForEdit(int id)

@@ -27,6 +27,7 @@ namespace EFCore_UseCase.Pages.ProductCategory
 
         public IActionResult OnPost(Edit command)
         {
+         
             _productCategoryApplication.Edit(command);
             return RedirectToPage("Index");
         }

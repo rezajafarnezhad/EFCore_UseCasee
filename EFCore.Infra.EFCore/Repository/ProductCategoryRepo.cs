@@ -27,6 +27,18 @@ namespace EFCore.Infra.EFCore.Repository
             return _context.ProductCategories.Any(c => c.Name == name);
         }
 
+        public List<ProductCategoryViewModel> GetAll()
+        {
+
+            return _context.ProductCategories.Select(c => new ProductCategoryViewModel()
+            {
+                Id = c.Id,
+                Name=c.Name,
+                CreationDate=c.CreationDate.ToString()
+            }).ToList();   
+         
+        }
+
         public ProductCategory GetProductCategory(int ProductCategoryId)
         {
             return _context.ProductCategories.Find(ProductCategoryId);

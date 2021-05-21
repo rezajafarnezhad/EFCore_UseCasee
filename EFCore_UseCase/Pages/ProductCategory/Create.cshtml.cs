@@ -22,11 +22,13 @@ namespace EFCore_UseCase.Pages.ProductCategory
 
         public IActionResult OnGet()
         {
+            ViewData["error"] = false;
             return Page();
         }
 
         public IActionResult OnPost(CreateProductCategory commend)
         {
+          
             _productCategoryApplication.Create(commend);
             return RedirectToPage("Index");
         }

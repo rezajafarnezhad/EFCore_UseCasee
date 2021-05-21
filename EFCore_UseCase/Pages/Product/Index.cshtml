@@ -1,0 +1,73 @@
+﻿@page
+@model Product.IndexModel
+@{
+
+    ViewData["Title"] = "Product";
+
+}
+
+
+<div class="text-center">
+    <h1 class="display-8 text-left">Product List</h1>
+    <p class="text-right"><a href="/Product/Create" class="btn btn-success">Create new Product</a></p>
+
+
+
+    <table class="table table-responsive table-bordered table-striped">
+
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category name</th>
+                <th>Creation Date</th>
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+            @foreach (var item in Model.ProductViewModels)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.Category</td>
+                    <td>@item.CreationDate</td>
+                    <td class="col-md-6">
+                        <div class="row">
+                            <a style="margin:12px" href="/Product/Edit/@item.Id" class="btn btn-warning pull-right">Edit</a>
+                            
+                            @if (item.IsRemove)
+                            {
+
+                                <form method="post" asp-page-handler="Restore" class="pull-right">
+                                    <input type="hidden" name="id" asp-for="@item.Id" />
+                                    <button style="margin:12px" class="btn btn-primary">Restore</button>
+                                </form>
+                            }
+                            else
+                            {
+
+
+                                <form method="post" asp-page-handler="Remove" class="pull-right">
+                                    <input type="hidden" name="id" asp-for="@item.Id" />
+                                    <button style="margin:12px" class="btn btn-danger">Remove</button>
+                                </form>
+
+
+                            }
+                        </div>
+                       
+
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+
+    </table>
+</div>

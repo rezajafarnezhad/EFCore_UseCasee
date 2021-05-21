@@ -1,4 +1,5 @@
 using EFCore.Application;
+using EFCore.Application.Contracts.Product;
 using EFCore.Application.Contracts.ProductCategory;
 using EFCore.Domain.ProductAgg;
 using EFCore.Domain.ProductCategoryAgg;
@@ -33,6 +34,7 @@ namespace EFCore_UseCase
             services.AddRazorPages();
 
             services.AddTransient<IProductRepo, ProductRepo>();
+            services.AddTransient<IProductApplication, ProductApplication>();
 
             services.AddTransient<IProductCategoryRepo, ProductCategoryRepo>();
             services.AddTransient<IProductCategoryApplication, ProductCategoryApplication>();
